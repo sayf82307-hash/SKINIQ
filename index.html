@@ -1,129 +1,313 @@
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a1020">
-  <title>SKINIQ | Know Your Skin Better</title>
+  <meta name="description" content="SKINIQ - Discover your skin type and build a personalized skincare routine.">
+  <title>SKINIQ | Your Skin, Decoded</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+  <!-- NAVIGATION -->
   <header class="navbar">
-    <a href="#" class="logo">SKIN<span>IQ</span><b>✦</b></a>
-    <a href="#experience" class="nav-link">Explore <span>↗</span></a>
+    <a href="#home" class="logo">
+      SKIN<span>IQ</span><b>✦</b>
+    </a>
+
+    <div class="nav-controls">
+      <nav class="language-switcher" aria-label="Language">
+        <button type="button" data-lang="ar">AR</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </nav>
+
+      <a href="#experience" class="nav-link"
+         data-i18n="explore">
+        Explore ↗
+      </a>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
+
+    <!-- HERO -->
+    <section id="home" class="hero">
       <div class="hero-glow"></div>
 
       <div class="eyebrow">
         <span class="pulse"></span>
-        THE NEXT GENERATION OF SKINCARE
+        <span data-i18n="eyebrow">
+          THE NEXT GENERATION OF SKINCARE
+        </span>
       </div>
 
-      <h1>
-        Better skin starts<br>
-        with <em>better insight.</em>
+      <h1 data-i18n="heroTitle">
+        Better skin begins with better understanding.
       </h1>
 
-      <p class="hero-description">
+      <p class="hero-description" data-i18n="heroDescription">
         Discover what your skin really needs.
-        Get personalized guidance, smarter
-        skincare choices, and a routine made for you.
+        Get personalized skincare guidance
+        and build a routine made for you.
       </p>
 
-      <a href="#experience" class="primary-btn">
-        Discover My Skin <span>↗</span>
+      <a href="#categories" class="primary-btn">
+        <span data-i18n="getStarted">Get started</span>
+        <span>↗</span>
       </a>
 
       <div class="hero-meta">
-        <span>✧ Personalized</span>
-        <span>✧ Free to explore</span>
-        <span>✧ Made for everyone</span>
+        <span data-i18n="personalized">✧ Personalized</span>
+        <span data-i18n="freeExplore">✧ Free exploration</span>
+        <span data-i18n="everyone">✧ Made for everyone</span>
       </div>
     </section>
 
+    <!-- MEN / WOMEN CATEGORIES -->
+    <section id="categories" class="experience categories-section">
+
+      <div class="section-label" data-i18n="categoryLabel">
+        01 / CHOOSE YOUR EXPERIENCE
+      </div>
+
+      <h2 data-i18n="categoryTitle">
+        Skincare, your way.
+      </h2>
+
+      <p class="section-description" data-i18n="categoryDescription">
+        Choose the experience that fits your style.
+      </p>
+
+      <div class="feature-grid category-grid">
+
+        <!-- MEN -->
+        <article class="feature-card category-card men-card">
+          <div class="feature-number">01</div>
+          <div class="feature-icon">◈</div>
+
+          <h3 data-i18n="menTitle">SKINIQ MEN</h3>
+
+          <p data-i18n="menDescription">
+            Minimal, powerful skincare.
+            A clean black-and-white experience.
+          </p>
+
+          <button
+            type="button"
+            class="card-action category-select"
+            data-category="men"
+            data-i18n="menButton">
+            Explore Men →
+          </button>
+        </article>
+
+        <!-- WOMEN -->
+        <article class="feature-card category-card women-card">
+          <div class="feature-number">02</div>
+          <div class="feature-icon">✿</div>
+
+          <h3 data-i18n="womenTitle">SKINIQ WOMEN</h3>
+
+          <p data-i18n="womenDescription">
+            Colorful skincare discovery,
+            beautiful inspiration and more options.
+          </p>
+
+          <button
+            type="button"
+            class="card-action category-select"
+            data-category="women"
+            data-i18n="womenButton">
+            Explore Women →
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
     <section id="experience" class="experience">
-      <div class="section-label">01 / YOUR EXPERIENCE</div>
-      <h2>Your skin journey, <span>simplified.</span></h2>
-      <p class="section-description">
-        Choose how you'd like to begin.
+
+      <div class="section-label" data-i18n="experienceLabel">
+        02 / YOUR EXPERIENCE
+      </div>
+
+      <h2 data-i18n="experienceTitle">
+        Your skincare journey, simplified.
+      </h2>
+
+      <p class="section-description" data-i18n="experienceDescription">
+        Choose how you want to begin.
       </p>
 
       <div class="feature-grid">
+
+        <!-- PHOTO PREVIEW -->
         <article class="feature-card">
           <div class="feature-icon">◎</div>
           <div class="feature-number">01</div>
-          <h3>Skin Photo</h3>
-          <p>
-            Upload a photo to preview it before
-            starting your skincare journey.
+
+          <h3 data-i18n="photoTitle">Skin photo</h3>
+
+          <p data-i18n="photoDescription">
+            Upload a photo to preview it.
+            Automatic skin analysis is not available yet.
           </p>
+
           <label for="skin-photo" class="card-action">
-            Choose a photo <span>↗</span>
+            <span data-i18n="photoButton">Choose a photo</span>
+            <span>↗</span>
           </label>
-          <input type="file" id="skin-photo" accept="image/*" hidden>
-          <img id="photo-preview" alt="Your selected skin photo" hidden>
-          <small>Photo analysis is not active yet.</small>
+
+          <input
+            type="file"
+            id="skin-photo"
+            accept="image/*"
+            hidden
+          >
+
+          <img
+            id="photo-preview"
+            alt="Selected skin photo preview"
+            hidden
+          >
+
+          <small data-i18n="photoNote">
+            Your photo is only previewed in your browser.
+          </small>
         </article>
 
+        <!-- QUIZ -->
         <article class="feature-card accent-card">
           <div class="feature-icon">✧</div>
           <div class="feature-number">02</div>
-          <h3>Skin Discovery</h3>
-          <p>
-            Answer a few simple questions to
-            explore your skin type and concerns.
+
+          <h3 data-i18n="quizCardTitle">
+            Discover your skin
+          </h3>
+
+          <p data-i18n="quizCardDescription">
+            Answer a few simple questions
+            to explore your skin type and concerns.
           </p>
+
           <a href="#quiz" class="card-action">
-            Start the quiz <span>↗</span>
+            <span data-i18n="quizCardButton">Start the quiz</span>
+            <span>↗</span>
           </a>
-          <small>No photo required.</small>
+
+          <small data-i18n="noPhoto">
+            No photo required.
+          </small>
         </article>
+
       </div>
     </section>
 
+    <!-- SKIN QUIZ -->
     <section id="quiz" class="quiz-section">
-      <div class="section-label">02 / SKIN DISCOVERY</div>
-      <h2>Let's get to know <span>your skin.</span></h2>
+
+      <div class="section-label" data-i18n="quizLabel">
+        03 / SKIN DISCOVERY
+      </div>
+
+      <h2 data-i18n="quizHeading">
+        Let's get to know your skin.
+      </h2>
 
       <div class="quiz-panel">
+
         <div class="quiz-top">
-          <span>SKIN PROFILE</span>
+          <span data-i18n="skinProfile">SKIN PROFILE</span>
           <span id="progress-label">01 / 04</span>
         </div>
+
         <div class="progress-track">
           <div id="progress-fill"></div>
         </div>
 
         <div id="quiz-content">
-          <h3 id="question-title">Ready to begin?</h3>
+
+          <h3 id="question-title">
+            Ready to begin?
+          </h3>
+
           <p id="question-help">
             Your answers help us suggest a starting routine.
           </p>
+
           <div id="answer-options"></div>
-          <button id="next-btn" type="button" disabled>
+
+          <button
+            id="next-btn"
+            type="button"
+            disabled>
             Continue →
           </button>
+
         </div>
 
         <div id="quiz-result" hidden></div>
+
       </div>
     </section>
 
-    <section class="bottom-section">
-      <div class="section-label">SKINCARE, REIMAGINED</div>
-      <h2>Understand more.<br><span>Glow your way.</span></h2>
-      <p>Simple guidance. Thoughtful routines. Your skin, your choices.</p>
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="experience products-section">
+
+      <div class="section-label" data-i18n="productsLabel">
+        04 / SKINCARE PRODUCTS
+      </div>
+
+      <h2 data-i18n="productsTitle">
+        Find products for your routine.
+      </h2>
+
+      <p class="section-description" data-i18n="productsDescription">
+        Explore skincare recommendations,
+        prices and places to shop.
+      </p>
+
+      <div id="product-list" class="feature-grid">
+        <!-- Products will be added here later -->
+      </div>
+
     </section>
+
+    <!-- BOTTOM -->
+    <section class="bottom-section">
+
+      <div class="section-label" data-i18n="bottomLabel">
+        SKINCARE, REIMAGINED
+      </div>
+
+      <h2 data-i18n="bottomTitle">
+        Learn more. Glow your own way.
+      </h2>
+
+      <p data-i18n="bottomDescription">
+        Simple guidance. Thoughtful routines.
+        Your skin, your choices.
+      </p>
+
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <span>SKIN<span class="footer-accent">IQ</span> ✦</span>
-    <small>© 2026 SKINIQ. Educational skincare guidance.</small>
+    <span class="footer-brand">
+      SKIN<span class="footer-accent">IQ</span> ✦
+    </span>
+
+    <p data-i18n="footerText">
+      © 2026 SKINIQ. Educational skincare guidance.
+    </p>
   </footer>
 
   <script src="script.js"></script>
