@@ -427,3 +427,177 @@ document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
 
 renderQuestion();
 
+
+/* SKINIQ - Languages and categories */
+
+const interfaceTexts = {
+  ar: {
+    explore: "استكشف ↗",
+    eyebrow: "الجيل الجديد من العناية بالبشرة",
+    heroTitle: "بشرة أفضل تبدأ بفهم أفضل.",
+    heroDescription: "اكتشف احتياجات بشرتك واحصل على روتين عناية مخصص لك.",
+    getStarted: "ابدأ الآن",
+    personalized: "✧ عناية مخصصة",
+    freeExplore: "✧ استكشاف مجاني",
+    everyone: "✧ للجميع",
+    categoryLabel: "01 / اختر تجربتك",
+    categoryTitle: "العناية بالبشرة بأسلوبك.",
+    categoryDescription: "اختر الواجهة التي تناسب ذوقك.",
+    menTitle: "SKINIQ MEN",
+    menDescription: "عناية بسيطة وأنيقة بتصميم أسود وأبيض.",
+    menButton: "استكشف واجهة الرجال ←",
+    womenTitle: "SKINIQ WOMEN",
+    womenDescription: "ألوان جميلة وتجربة غنية بخيارات العناية بالبشرة.",
+    womenButton: "استكشف واجهة النساء ←",
+    experienceLabel: "02 / تجربتك",
+    experienceTitle: "رحلتك للعناية بالبشرة أصبحت أسهل.",
+    experienceDescription: "اختر كيف تريد البدء.",
+    photoTitle: "صورة البشرة",
+    photoDescription: "اختر صورة لمعاينتها. التحليل التلقائي غير متاح حالياً.",
+    photoButton: "اختر صورة",
+    photoNote: "تُعرض الصورة في متصفحك فقط.",
+    quizCardTitle: "اكتشف بشرتك",
+    quizCardDescription: "أجب عن أسئلة بسيطة لمعرفة نوع بشرتك.",
+    quizCardButton: "ابدأ الاختبار",
+    noPhoto: "لا تحتاج إلى صورة.",
+    quizLabel: "03 / اكتشاف البشرة",
+    quizHeading: "لنتعرف على بشرتك.",
+    skinProfile: "ملف البشرة",
+    productsLabel: "04 / المنتجات",
+    productsTitle: "اكتشف منتجات روتينك.",
+    productsDescription: "سنضيف المنتجات والأسعار والمتاجر قريباً.",
+    bottomLabel: "العناية بالبشرة بطريقة جديدة",
+    bottomTitle: "تعلّم أكثر. تألق بطريقتك.",
+    bottomDescription: "نصائح بسيطة وروتين يناسب احتياجاتك.",
+    footerText: "© 2026 SKINIQ. نصائح تعليمية للعناية بالبشرة."
+  },
+
+  fr: {
+    explore: "Explorer ↗",
+    eyebrow: "LA NOUVELLE GÉNÉRATION DES SOINS DE LA PEAU",
+    heroTitle: "Une belle peau commence par une meilleure compréhension.",
+    heroDescription: "Découvrez les besoins de votre peau et créez votre routine personnalisée.",
+    getStarted: "Commencer",
+    personalized: "✧ Personnalisé",
+    freeExplore: "✧ Exploration gratuite",
+    everyone: "✧ Pour tous",
+    categoryLabel: "01 / CHOISISSEZ VOTRE EXPÉRIENCE",
+    categoryTitle: "Les soins à votre façon.",
+    categoryDescription: "Choisissez votre univers préféré.",
+    menTitle: "SKINIQ MEN",
+    menDescription: "Des soins simples et élégants en noir et blanc.",
+    menButton: "Explorer Men →",
+    womenTitle: "SKINIQ WOMEN",
+    womenDescription: "Des couleurs et de nombreuses options beauté.",
+    womenButton: "Explorer Women →",
+    experienceLabel: "02 / VOTRE EXPÉRIENCE",
+    experienceTitle: "Votre parcours de soins simplifié.",
+    experienceDescription: "Choisissez comment commencer.",
+    photoTitle: "Photo de peau",
+    photoDescription: "Prévisualisez votre photo. L'analyse automatique n'est pas encore disponible.",
+    photoButton: "Choisir une photo",
+    photoNote: "La photo reste dans votre navigateur.",
+    quizCardTitle: "Découvrez votre peau",
+    quizCardDescription: "Répondez à quelques questions sur votre peau.",
+    quizCardButton: "Commencer le quiz",
+    noPhoto: "Aucune photo nécessaire.",
+    quizLabel: "03 / DÉCOUVERTE DE LA PEAU",
+    quizHeading: "Apprenons à connaître votre peau.",
+    skinProfile: "PROFIL DE PEAU",
+    productsLabel: "04 / PRODUITS",
+    productsTitle: "Découvrez les produits de votre routine.",
+    productsDescription: "Produits, prix et boutiques à venir.",
+    bottomLabel: "LES SOINS RÉINVENTÉS",
+    bottomTitle: "Apprenez davantage. Rayonnez à votre façon.",
+    bottomDescription: "Des conseils simples et une routine adaptée.",
+    footerText: "© 2026 SKINIQ. Conseils éducatifs sur les soins de la peau."
+  },
+
+  en: {
+    explore: "Explore ↗",
+    eyebrow: "THE NEXT GENERATION OF SKINCARE",
+    heroTitle: "Better skin begins with better understanding.",
+    heroDescription: "Discover your skin's needs and build a personalized routine.",
+    getStarted: "Get started",
+    personalized: "✧ Personalized",
+    freeExplore: "✧ Free exploration",
+    everyone: "✧ Made for everyone",
+    categoryLabel: "01 / CHOOSE YOUR EXPERIENCE",
+    categoryTitle: "Skincare, your way.",
+    categoryDescription: "Choose the experience that fits your style.",
+    menTitle: "SKINIQ MEN",
+    menDescription: "Minimal skincare with a clean black-and-white design.",
+    menButton: "Explore Men →",
+    womenTitle: "SKINIQ WOMEN",
+    womenDescription: "Colorful skincare discovery with more beauty options.",
+    womenButton: "Explore Women →",
+    experienceLabel: "02 / YOUR EXPERIENCE",
+    experienceTitle: "Your skincare journey, simplified.",
+    experienceDescription: "Choose how you want to begin.",
+    photoTitle: "Skin photo",
+    photoDescription: "Preview your photo. Automatic analysis is not available yet.",
+    photoButton: "Choose a photo",
+    photoNote: "Your photo stays in your browser.",
+    quizCardTitle: "Discover your skin",
+    quizCardDescription: "Answer a few questions about your skin.",
+    quizCardButton: "Start the quiz",
+    noPhoto: "No photo required.",
+    quizLabel: "03 / SKIN DISCOVERY",
+    quizHeading: "Let's get to know your skin.",
+    skinProfile: "SKIN PROFILE",
+    productsLabel: "04 / PRODUCTS",
+    productsTitle: "Find products for your routine.",
+    productsDescription: "Products, prices and stores coming soon.",
+    bottomLabel: "SKINCARE, REIMAGINED",
+    bottomTitle: "Learn more. Glow your own way.",
+    bottomDescription: "Simple guidance and routines made for you.",
+    footerText: "© 2026 SKINIQ. Educational skincare guidance."
+  }
+};
+
+function updateInterface() {
+  const text = interfaceTexts[currentLanguage];
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const key = element.dataset.i18n;
+    if (text[key]) element.textContent = text[key];
+  });
+
+  document.querySelectorAll("[data-lang]").forEach(button => {
+    const active = button.dataset.lang === currentLanguage;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+document.querySelectorAll("[data-lang]").forEach(button => {
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.lang);
+    updateInterface();
+  });
+});
+
+document.querySelectorAll("[data-category]").forEach(button => {
+  button.addEventListener("click", () => {
+    const category = button.dataset.category;
+
+    document.body.classList.remove("theme-men", "theme-women");
+    document.body.classList.add("theme-" + category);
+
+    localStorage.setItem("skiniq-category", category);
+
+    document.getElementById("experience").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+const savedCategory = localStorage.getItem("skiniq-category");
+
+if (savedCategory === "men" || savedCategory === "women") {
+  document.body.classList.add("theme-" + savedCategory);
+}
+
+updateInterface();
+
+
