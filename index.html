@@ -1,391 +1,44 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SKINIQ | Your Beauty Intelligence</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b2d">
+<title>SKINIQ — اكتشف بشرتك</title>
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#090b10;color:#fff}
-button,select{font:inherit}
-button{cursor:pointer}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 5%;border-bottom:1px solid #333;gap:12px;flex-wrap:wrap}
-.logo{font-size:25px;font-weight:900;letter-spacing:3px}
-.logo span{color:#83aaff}
-.languages{display:flex;gap:6px}
-.languages button{background:#20232b;border:1px solid #555;border-radius:9px;color:white;padding:9px 12px}
-.languages button.active{background:#fff;color:#111}
-.hero{text-align:center;padding:85px 20px 65px;background:radial-gradient(circle at top,#273d63,#090b10 65%)}
-.eyebrow{letter-spacing:4px;font-size:12px;color:#aab5c7}
-h1{font-size:clamp(40px,9vw,78px);margin:18px 0}
-.hero p{color:#c5cbd4;max-width:570px;margin:0 auto 30px;line-height:1.7}
-.choices{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.primary{background:white;color:#111;border:0;padding:16px 35px;border-radius:12px;font-weight:bold}
-.secondary{background:transparent;color:white;border:1px solid #aaa;padding:16px 35px;border-radius:12px;font-weight:bold}
-main{max-width:1180px;margin:auto;padding:25px 5%}
-section{margin:55px 0}
-.section-head{text-align:center;margin-bottom:28px}
-.section-head h2{font-size:clamp(28px,5vw,42px);margin:10px 0}
-.section-head p{color:#aeb5c1}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.card{background:linear-gradient(150deg,#252831,#121318);border:1px solid #42444d;border-radius:22px;padding:24px;min-height:210px}
-.card h3{font-size:22px;margin:12px 0}
-.card p{color:#bfc2ca;line-height:1.6}
-.symbol{font-size:43px}
-.price{font-weight:bold;color:#fff;font-size:19px}
-.tag{font-size:11px;letter-spacing:2px;color:#9eaac0}
-.action{display:inline-block;color:#fff;border-bottom:1px solid #aaa;padding:8px 0;text-decoration:none;margin-top:8px}
-#menArea,#womenArea{display:none}
-#menArea .card{background:linear-gradient(145deg,#292929,#101010)}
-#womenArea .card{background:linear-gradient(145deg,#493746,#1b1720)}
-.panel{background:#191d27;border:1px solid #404757;border-radius:24px;padding:30px;max-width:650px;margin:auto}
-.panel select,.panel button{width:100%;padding:14px;border-radius:12px;margin:10px 0}
-.panel select{background:#252b38;color:white;border:1px solid #555}
-.panel button{background:#fff;color:#111;border:0;font-weight:bold}
-#result{margin-top:18px;line-height:1.8}
-.notice{font-size:12px;color:#9fa5b2;line-height:1.6}
-footer{text-align:center;color:#a3a9b5;padding:40px;border-top:1px solid #333}
-[dir="rtl"] .card,[dir="rtl"] .panel{text-align:right}
+:root{--ink:#17243a;--muted:#69768b;--blue:#255ee8;--line:#e6eaf2;--bg:#f6f8fc;--white:#fff;--gold:#d4ad68}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}.wrap{max-width:1200px;margin:auto;padding:0 20px}.top{background:#101b2d;color:#fff;text-align:center;padding:9px;font-size:12px;letter-spacing:.3px}.nav{background:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}.navinner{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px;flex-wrap:wrap}.brand{font-weight:950;letter-spacing:2px;font-size:27px;color:#152441}.brand span{color:var(--blue)}.navlinks{display:flex;gap:18px;font-size:13px;font-weight:650}.lang{display:flex;gap:5px}.lang button{background:#f1f4fa;color:#34405b;border:0;border-radius:9px;padding:8px 11px}.lang button.active{background:#1a2a47;color:#fff}.hero{background:linear-gradient(120deg,#101b2d,#24426e 65%,#4267a5);color:#fff;padding:90px 0 100px;overflow:hidden}.herogrid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:32px}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:800;color:#c2d3fb}.hero h1{font-size:clamp(36px,6vw,69px);line-height:1.13;margin:16px 0}.hero p{color:#e2e9f7;line-height:1.9;max-width:570px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{border:0;border-radius:12px;padding:14px 23px;font-weight:750;display:inline-flex;justify-content:center;align-items:center;gap:8px}.btn.primary{background:var(--blue);color:#fff}.btn.light{background:#fff;color:#17243a}.btn.outline{background:transparent;border:1px solid #ffffff80;color:#fff}.heroart{height:310px;position:relative;display:grid;place-items:center}.bottle{width:150px;height:215px;border-radius:23px 23px 33px 33px;background:linear-gradient(110deg,#eaf3ff,#a5bedc 50%,#fff);box-shadow:22px 25px 75px #0005;transform:rotate(-11deg);position:relative;display:grid;place-items:center;color:#1d3d6e;font-weight:900;letter-spacing:3px}.bottle:before{content:"";position:absolute;top:-35px;width:72px;height:42px;border-radius:7px;background:#c8d9ec}.orb{position:absolute;border-radius:50%;border:1px solid #ffffff40;width:260px;height:260px}.orb.two{width:350px;height:350px}.section{padding:64px 0}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:24px;flex-wrap:wrap}.sectionhead h2{font-size:clamp(25px,4vw,37px);margin:0 0 9px}.sectionhead p{color:var(--muted);margin:0;line-height:1.8}.kicker{color:var(--blue);font-size:12px;font-weight:850;letter-spacing:2px}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cat{background:#fff;border:1px solid var(--line);padding:25px 12px;border-radius:18px;text-align:center;cursor:pointer;transition:.2s}.cat:hover,.cat.active{border-color:var(--blue);box-shadow:0 8px 30px #255ee818}.cat .emoji{font-size:34px;display:block;margin-bottom:11px}.cat strong{display:block}.cat small{display:block;color:var(--muted);margin-top:7px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}.filters input,.filters select{border:1px solid #d9e0ec;border-radius:11px;padding:13px;background:#fff;color:var(--ink);min-width:150px}.filters input{flex:1;min-width:210px}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}.productvisual{height:180px;display:grid;place-items:center;background:linear-gradient(135deg,#f1f6ff,#e4eaf7);position:relative}.productvisual .jar{background:linear-gradient(100deg,#fff,#d8e4f4);border:1px solid #d6e0ef;box-shadow:10px 14px 22px #1c39601a;width:75px;height:110px;border-radius:9px 9px 17px 17px;display:grid;place-items:center;text-align:center;font-size:10px;font-weight:900;color:#3c6597;letter-spacing:1px;padding:7px}.productvisual .jar:before{content:"";position:absolute;transform:translateY(-67px);width:76px;height:17px;background:#bdd1ea;border-radius:6px}.productvisual .symbol{position:absolute;bottom:14px;right:17px;font-size:22px}.productbody{padding:18px;display:flex;flex-direction:column;flex:1}.productbody .brandname{color:#5474a4;font-size:11px;font-weight:900;letter-spacing:1px}.product h3{font-size:15px;line-height:1.6;margin:7px 0}.product p{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 12px}.product .bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.price{font-weight:900;color:#1b4cbf}.mini{background:#edf3ff;color:#1646b7;border:0;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:750}.quizsection{background:#eef3fc}.quizlayout{display:grid;grid-template-columns:.7fr 1.3fr;gap:28px;align-items:start}.quizintro{background:#182d50;color:#fff;border-radius:23px;padding:34px;min-height:350px}.quizintro h2{font-size:34px;line-height:1.35}.quizintro p{color:#d8e4fa;line-height:1.9}.quizcard{background:#fff;border:1px solid var(--line);border-radius:23px;padding:28px;box-shadow:0 15px 40px #22365d0b}.progressrow{display:flex;justify-content:space-between;font-size:13px;font-weight:800;color:#55708f}.progress{height:8px;border-radius:50px;background:#e8edf6;overflow:hidden;margin:15px 0 28px}.progressbar{height:100%;background:var(--blue);width:12.5%;transition:width .25s}.quizcard h3{font-size:24px;line-height:1.5}.options{display:grid;gap:10px;margin:22px 0}.option{display:block;width:100%;text-align:start;padding:17px;border:1px solid #dce4f1;border-radius:12px;background:#fff;color:#1b2c47}.option.selected{background:#eaf1ff;border-color:#255ee8;box-shadow:inset 0 0 0 1px #255ee8}.quizcontrols{display:flex;justify-content:space-between;gap:10px}.quizcontrols button:disabled{opacity:.4;cursor:not-allowed}.result{display:none}.result.show{display:block}.resulttype{font-size:30px;color:#154bc2;font-weight:900}.routinegrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.routine{background:#f4f7fc;padding:18px;border-radius:15px}.routine h4{margin:0 0 12px}.routine ol{margin:0;padding-inline-start:20px;line-height:2;color:#44546c}.recommend{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}.rec{padding:15px;border:1px solid #e2e8f3;border-radius:13px}.rec strong{display:block;font-size:13px}.rec small{display:block;color:var(--muted);margin:7px 0}.disclaimer{color:#768398;font-size:12px;line-height:1.8}.footer{background:#101b2d;color:#c8d4e8;padding:36px 0;text-align:center}.footer .brand{color:#fff}.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted)}@media(max-width:850px){.herogrid,.quizlayout{grid-template-columns:1fr}.heroart{height:220px}.bottle{transform:scale(.8) rotate(-11deg)}.orb{transform:scale(.7)}.categories,.products{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.navinner{padding:12px 0}.navlinks{order:3;width:100%;justify-content:space-between}.hero{padding:55px 0}.heroart{display:none}.products{gap:9px}.productvisual{height:125px}.productbody{padding:12px}.product h3{font-size:13px}.categories{gap:9px}.cat{padding:18px 6px}.quizcard{padding:19px}.routinegrid,.recommend{grid-template-columns:1fr}.section{padding:46px 0}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">SKIN<span>IQ</span></div>
-  <div class="languages">
-    <button data-lang="ar">AR</button>
-    <button data-lang="fr">FR</button>
-    <button data-lang="en" class="active">EN</button>
-  </div>
-</header>
-
-<div class="hero">
-  <div class="eyebrow" data-i18n="heroTag">SMART BEAUTY EXPERIENCE</div>
-  <h1>SKINIQ</h1>
-  <p data-i18n="heroDesc">Discover skincare, fragrances and haircare made for you.</p>
-  <div class="choices">
-    <button class="primary" onclick="choose('men')" data-i18n="menBtn">MEN</button>
-    <button class="secondary" onclick="choose('women')" data-i18n="womenBtn">WOMEN</button>
-  </div>
-</div>
-
-<main>
-
-<section id="menArea">
-  <div class="section-head">
-    <div class="eyebrow">SKINIQ MEN</div>
-    <h2 data-i18n="menTitle">THE GENTLEMAN'S CLUB</h2>
-    <p data-i18n="menSubtitle">Skin • Scent • Style</p>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="symbol">◈</div>
-      <h3 data-i18n="skin">SKINCARE</h3>
-      <p data-i18n="skinDesc">Build your personalized skincare routine.</p>
-      <a href="#quiz" class="action" data-i18n="explore">EXPLORE →</a>
-    </div>
-    <div class="card">
-      <div class="symbol">✦</div>
-      <h3 data-i18n="fragrance">FRAGRANCES</h3>
-      <p data-i18n="fragranceDesc">Find a scent that matches your personality.</p>
-      <a href="#fragranceProducts" class="action" data-i18n="explore">EXPLORE →</a>
-    </div>
-    <div class="card">
-      <div class="symbol">✂</div>
-      <h3 data-i18n="hair">HAIRCARE</h3>
-      <p data-i18n="hairDesc">Discover products for your hair.</p>
-      <a href="#hairProducts" class="action" data-i18n="explore">EXPLORE →</a>
-    </div>
-  </div>
-
-  <section id="fragranceProducts">
-    <div class="section-head">
-      <h2 data-i18n="fragranceTitle">FRAGRANCE DISCOVERY</h2>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <div class="symbol">🖤</div>
-        <div class="tag">DIOR</div>
-        <h3>Sauvage Eau de Toilette</h3>
-        <p data-i18n="sauvageDesc">Fresh, spicy and woody fragrance.</p>
-        <a class="action" href="https://www.dior.com/" target="_blank" rel="noopener" data-i18n="brandSite">BRAND WEBSITE ↗</a>
-      </div>
-      <div class="card">
-        <div class="symbol">✨</div>
-        <div class="tag">VERSACE</div>
-        <h3>Eros Eau de Toilette</h3>
-        <p data-i18n="erosDesc">Fresh, aromatic and warm fragrance.</p>
-        <a class="action" href="https://www.versace.com/" target="_blank" rel="noopener" data-i18n="brandSite">BRAND WEBSITE ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="hairProducts">
-    <div class="section-head">
-      <h2 data-i18n="hairTitle">HAIRCARE STUDIO</h2>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <div class="symbol">🧴</div>
-        <h3>PHYTOCYANE MEN 250 ml</h3>
-        <p data-i18n="phytoDesc">Tonifying shampoo for men.</p>
-        <div class="price">280 MAD*</div>
-        <a class="action" href="https://www.parapharma.ma/accueil/30685-phyto-cyane-homme-shampooing-tonifiant-250-ml-3701436915501.html" target="_blank" rel="noopener" data-i18n="viewProduct">VIEW PRODUCT ↗</a>
-      </div>
-      <div class="card">
-        <div class="symbol">🧴</div>
-        <h3>CAPIDERMA 200 ml</h3>
-        <p data-i18n="capiDesc">Shampoo for hair prone to shedding.</p>
-        <div class="price">189 MAD*</div>
-        <a class="action" href="https://www.parapharma.ma/homme/2613-capiderma-anti-chute-shampooing-200ml.html" target="_blank" rel="noopener" data-i18n="viewProduct">VIEW PRODUCT ↗</a>
-      </div>
-    </div>
-    <p class="notice" data-i18n="priceNote">*Indicative prices. Check the seller for current pricing.</p>
-  </section>
-</section>
-
-<section id="womenArea">
-  <div class="section-head">
-    <div class="eyebrow">SKINIQ WOMEN</div>
-    <h2 data-i18n="womenTitle">YOUR BEAUTY STUDIO</h2>
-    <p data-i18n="womenSubtitle">Discover your everyday beauty essentials.</p>
-  </div>
-  <div class="grid">
-    <div class="card">
-      <div class="symbol">🌸</div>
-      <h3 data-i18n="skin">SKINCARE</h3>
-      <p data-i18n="skinDesc">Build your personalized skincare routine.</p>
-      <a class="action" href="#quiz" data-i18n="explore">EXPLORE →</a>
-    </div>
-    <div class="card">
-      <div class="symbol">💧</div>
-      <h3>CeraVe Moisturising Cream</h3>
-      <p data-i18n="ceraveDesc">Moisturizer for dry to very dry skin.</p>
-      <a class="action" href="https://www.cerave.com/" target="_blank" rel="noopener" data-i18n="brandSite">BRAND WEBSITE ↗</a>
-    </div>
-    <div class="card">
-      <div class="symbol">☀️</div>
-      <h3>La Roche-Posay Anthelios</h3>
-      <p data-i18n="spfDesc">Sun protection product range.</p>
-      <a class="action" href="https://www.laroche-posay.com/" target="_blank" rel="noopener" data-i18n="brandSite">BRAND WEBSITE ↗</a>
-    </div>
-  </div>
-</section>
-
-<section id="quiz">
-  <div class="section-head">
-    <h2 data-i18n="quizTitle">DISCOVER YOUR SKIN</h2>
-    <p data-i18n="quizSubtitle">A simple questionnaire to guide your routine.</p>
-  </div>
-  <div class="panel">
-    <label data-i18n="question">How does your skin usually feel?</label>
-    <select id="skinType">
-      <option value="dry" data-i18n="dry">Dry or tight</option>
-      <option value="oily" data-i18n="oily">Oily or shiny</option>
-      <option value="combination" data-i18n="combination">Oily in some areas, dry in others</option>
-      <option value="normal" data-i18n="normal">Comfortable and balanced</option>
-    </select>
-    <button onclick="showResult()" data-i18n="getRoutine">GET MY ROUTINE</button>
-    <div id="result"></div>
-    <p class="notice" data-i18n="disclaimer">This questionnaire provides general skincare guidance, not a medical diagnosis.</p>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <strong>SKINIQ</strong>
-  <p data-i18n="footerText">Your skin. Your style. Your confidence.</p>
-</footer>
-
+<div class="top" data-t="shipping">SKINIQ • جمال واعٍ، عناية أذكى</div>
+<header class="nav"><div class="wrap navinner"><a href="#home" class="brand">SKIN<span>IQ</span></a><nav class="navlinks"><a href="#shop" data-t="navShop">المنتجات</a><a href="#quiz" data-t="navQuiz">اختبار البشرة</a><a href="#categories" data-t="navCategories">الأقسام</a></nav><div class="lang"><button data-lang="ar" class="active">AR</button><button data-lang="fr">FR</button><button data-lang="en">EN</button></div></div></header>
+<section class="hero" id="home"><div class="wrap herogrid"><div><span class="eyebrow" data-t="heroEyebrow">SKINCARE • BEAUTY • DISCOVERY</span><h1 data-t="heroTitle">بشرتك تستحق<br>عناية تناسبها.</h1><p data-t="heroDesc">اكتشف منتجات العناية، وأجب عن 8 أسئلة بسيطة لتحصل على نوع بشرتك المرجّح وروتين صباحي ومسائي مناسب.</p><div class="actions"><a href="#quiz" class="btn light" data-t="startQuiz">ابدأ اختبار البشرة ←</a><a href="#shop" class="btn outline" data-t="browse">تصفح المنتجات</a></div></div><div class="heroart" aria-hidden="true"><div class="orb two"></div><div class="orb"></div><div class="bottle">SKINIQ<br>CARE</div></div></div></section>
+<section class="section" id="categories"><div class="wrap"><div class="sectionhead"><div><div class="kicker" data-t="explore">EXPLORE</div><h2 data-t="catTitle">تسوق حسب احتياجك</h2><p data-t="catDesc">اختر القسم الذي يناسبك</p></div></div><div class="categories"><button class="cat" data-category="all"><span class="emoji">✨</span><strong data-t="all">جميع المنتجات</strong><small data-t="allSub">اكتشف المجموعة</small></button><button class="cat" data-category="skin"><span class="emoji">🧴</span><strong data-t="skin">العناية بالبشرة</strong><small data-t="skinSub">تنظيف وترطيب وحماية</small></button><button class="cat" data-category="hair"><span class="emoji">🌿</span><strong data-t="hair">العناية بالشعر</strong><small data-t="hairSub">عناية يومية</small></button><button class="cat" data-category="fragrance"><span class="emoji">💎</span><strong data-t="fragrance">العطور</strong><small data-t="fragranceSub">روائح مميزة</small></button></div></div></section>
+<section class="section" id="shop"><div class="wrap"><div class="sectionhead"><div><div class="kicker">THE COLLECTION</div><h2 data-t="shopTitle">منتجات مختارة لك</h2><p data-t="shopDesc">منتجات معروفة، مع روابط إلى المواقع الرسمية للعلامات التجارية</p></div></div><div class="filters"><input id="search" type="search" placeholder="ابحث عن منتج أو علامة تجارية" aria-label="بحث"><select id="typeFilter" aria-label="نوع البشرة"><option value="all" data-t="allTypes">جميع أنواع البشرة</option><option value="dry" data-t="dry">جافة</option><option value="oily" data-t="oily">دهنية</option><option value="combination" data-t="combination">مختلطة</option><option value="normal" data-t="normal">عادية</option><option value="sensitive" data-t="sensitive">حساسة</option></select><select id="audienceFilter" aria-label="الجمهور"><option value="all" data-t="everyone">للجميع</option><option value="men" data-t="men">للرجال</option><option value="women" data-t="women">للنساء</option></select></div><div class="products" id="products"></div><p class="disclaimer" data-t="pricesNote">المنتجات أمثلة توضيحية؛ تحقق من التوفر والسعر والمكونات لدى البائع. روابط الشراء ليست معاملات داخل SKINIQ.</p></div></section>
+<section class="section quizsection" id="quiz"><div class="wrap quizlayout"><div class="quizintro"><span class="eyebrow">SKINIQ SKIN PROFILE</span><h2 data-t="quizHeading">لنكتشف طبيعة بشرتك.</h2><p data-t="quizIntro">8 أسئلة فقط تساعدنا على اقتراح نوع البشرة الأقرب لإجاباتك، والروتين والمنتجات التي يمكن البدء بها.</p><p data-t="quizFree">مجاني • بدون تسجيل • لا تُرفع أي صور</p></div><div class="quizcard"><div id="questionScreen"><div class="progressrow"><span data-t="skinProfile">ملف البشرة</span><span id="counter">1 / 8</span></div><div class="progress"><div class="progressbar" id="progressbar"></div></div><h3 id="questionText"></h3><div id="options" class="options"></div><div class="quizcontrols"><button id="prev" class="btn" type="button" data-t="back">السابق</button><button id="next" class="btn primary" type="button" disabled data-t="next">متابعة</button></div></div><div id="result" class="result" aria-live="polite"></div></div></div></section>
+<footer class="footer"><div class="wrap"><div class="brand">SKIN<span>IQ</span></div><p data-t="footer">جمالك يبدأ بمعرفة بشرتك. تجربة مجانية مستقلة.</p><small>© 2026 SKINIQ</small></div></footer>
 <script>
-const translations = {
-en:{
-heroTag:"SMART BEAUTY EXPERIENCE",
-heroDesc:"Discover skincare, fragrances and haircare made for you.",
-menBtn:"MEN",womenBtn:"WOMEN",
-menTitle:"THE GENTLEMAN'S CLUB",
-menSubtitle:"Skin • Scent • Style",
-womenTitle:"YOUR BEAUTY STUDIO",
-womenSubtitle:"Discover your everyday beauty essentials.",
-skin:"SKINCARE",fragrance:"FRAGRANCES",hair:"HAIRCARE",
-skinDesc:"Build your personalized skincare routine.",
-fragranceDesc:"Find a scent that matches your personality.",
-hairDesc:"Discover products for your hair.",
-explore:"EXPLORE →",
-fragranceTitle:"FRAGRANCE DISCOVERY",
-hairTitle:"HAIRCARE STUDIO",
-sauvageDesc:"Fresh, spicy and woody fragrance.",
-erosDesc:"Fresh, aromatic and warm fragrance.",
-phytoDesc:"Tonifying shampoo for men.",
-capiDesc:"Shampoo for hair prone to shedding.",
-ceraveDesc:"Moisturizer for dry to very dry skin.",
-spfDesc:"Sun protection product range.",
-brandSite:"BRAND WEBSITE ↗",viewProduct:"VIEW PRODUCT ↗",
-priceNote:"*Indicative prices. Check the seller for current pricing.",
-quizTitle:"DISCOVER YOUR SKIN",
-quizSubtitle:"A simple questionnaire to guide your routine.",
-question:"How does your skin usually feel?",
-dry:"Dry or tight",oily:"Oily or shiny",
-combination:"Oily in some areas, dry in others",
-normal:"Comfortable and balanced",
-getRoutine:"GET MY ROUTINE",
-disclaimer:"This questionnaire provides general skincare guidance, not a medical diagnosis.",
-footerText:"Your skin. Your style. Your confidence.",
-resultTitle:"YOUR SUGGESTED ROUTINE",
-morning:"Morning",evening:"Evening",
-dryRoutine:"Use a gentle cleanser, rich moisturizer and SPF 30+ in the morning. Cleanse and moisturize at night.",
-oilyRoutine:"Use a gentle cleanser, lightweight moisturizer and SPF 30+ in the morning. Cleanse and moisturize at night.",
-combinationRoutine:"Use a gentle cleanser, lightweight moisturizer and SPF 30+ in the morning. Moisturize dry areas as needed.",
-normalRoutine:"Use a gentle cleanser, moisturizer and SPF 30+ in the morning. Cleanse and moisturize at night."
-},
-fr:{
-heroTag:"EXPÉRIENCE BEAUTÉ INTELLIGENTE",
-heroDesc:"Découvrez des soins, parfums et produits capillaires adaptés à vous.",
-menBtn:"HOMMES",womenBtn:"FEMMES",
-menTitle:"LE CLUB DES GENTLEMEN",
-menSubtitle:"Peau • Parfum • Style",
-womenTitle:"VOTRE STUDIO BEAUTÉ",
-womenSubtitle:"Découvrez vos essentiels beauté.",
-skin:"SOINS DE LA PEAU",fragrance:"PARFUMS",hair:"SOINS CAPILLAIRES",
-skinDesc:"Créez votre routine de soins personnalisée.",
-fragranceDesc:"Trouvez un parfum qui vous correspond.",
-hairDesc:"Découvrez des produits pour vos cheveux.",
-explore:"DÉCOUVRIR →",
-fragranceTitle:"DÉCOUVERTE DES PARFUMS",
-hairTitle:"STUDIO CAPILLAIRE",
-sauvageDesc:"Parfum frais, épicé et boisé.",
-erosDesc:"Parfum frais, aromatique et chaleureux.",
-phytoDesc:"Shampooing tonifiant pour homme.",
-capiDesc:"Shampooing pour cheveux sujets à la chute.",
-ceraveDesc:"Crème hydratante pour peaux sèches à très sèches.",
-spfDesc:"Gamme de protection solaire.",
-brandSite:"SITE DE LA MARQUE ↗",viewProduct:"VOIR LE PRODUIT ↗",
-priceNote:"*Prix indicatifs. Vérifiez le tarif actuel chez le vendeur.",
-quizTitle:"DÉCOUVREZ VOTRE PEAU",
-quizSubtitle:"Un questionnaire simple pour orienter votre routine.",
-question:"Comment est votre peau habituellement ?",
-dry:"Sèche ou tiraillée",oily:"Grasse ou brillante",
-combination:"Grasse par endroits, sèche ailleurs",
-normal:"Confortable et équilibrée",
-getRoutine:"VOIR MA ROUTINE",
-disclaimer:"Ce questionnaire donne des conseils généraux, pas un diagnostic médical.",
-footerText:"Votre peau. Votre style. Votre confiance.",
-resultTitle:"VOTRE ROUTINE SUGGÉRÉE",
-morning:"Matin",evening:"Soir",
-dryRoutine:"Utilisez un nettoyant doux, une crème riche et un SPF 30+ le matin. Nettoyez et hydratez le soir.",
-oilyRoutine:"Utilisez un nettoyant doux, une crème légère et un SPF 30+ le matin. Nettoyez et hydratez le soir.",
-combinationRoutine:"Utilisez un nettoyant doux, une crème légère et un SPF 30+ le matin. Hydratez davantage les zones sèches.",
-normalRoutine:"Utilisez un nettoyant doux, une crème hydratante et un SPF 30+ le matin. Nettoyez et hydratez le soir."
-},
-ar:{
-heroTag:"تجربة جمال ذكية",
-heroDesc:"اكتشف منتجات العناية بالبشرة والعطور والشعر المناسبة لك.",
-menBtn:"الرجال",womenBtn:"النساء",
-menTitle:"عالم الأناقة الرجالية",
-menSubtitle:"البشرة • العطور • الأناقة",
-womenTitle:"عالم الجمال",
-womenSubtitle:"اكتشفي أساسيات العناية اليومية.",
-skin:"العناية بالبشرة",fragrance:"العطور",hair:"العناية بالشعر",
-skinDesc:"أنشئ روتين العناية المناسب لبشرتك.",
-fragranceDesc:"اكتشف عطراً يناسب شخصيتك.",
-hairDesc:"اكتشف منتجات العناية بشعرك.",
-explore:"اكتشف المزيد ←",
-fragranceTitle:"اكتشف العطور",
-hairTitle:"استوديو العناية بالشعر",
-sauvageDesc:"عطر منعش وحار وخشبي.",
-erosDesc:"عطر منعش بروائح عطرية دافئة.",
-phytoDesc:"شامبو مقوٍّ للشعر للرجال.",
-capiDesc:"شامبو للعناية بالشعر المعرض للتساقط.",
-ceraveDesc:"كريم مرطب للبشرة الجافة إلى شديدة الجفاف.",
-spfDesc:"مجموعة منتجات الحماية من الشمس.",
-brandSite:"موقع العلامة التجارية ↗",viewProduct:"عرض المنتج ↗",
-priceNote:"*الأسعار استرشادية. تحقق من السعر الحالي لدى البائع.",
-quizTitle:"اكتشف طبيعة بشرتك",
-quizSubtitle:"أسئلة بسيطة لمساعدتك في اختيار روتين العناية.",
-question:"كيف تشعر ببشرتك عادة؟",
-dry:"جافة أو مشدودة",oily:"دهنية أو لامعة",
-combination:"دهنية في مناطق وجافة في أخرى",
-normal:"متوازنة ومريحة",
-getRoutine:"اعرض روتيني",
-disclaimer:"هذا الاختبار يقدم إرشادات عامة وليس تشخيصاً طبياً.",
-footerText:"بشرتك. أسلوبك. ثقتك.",
-resultTitle:"روتين العناية المقترح",
-morning:"الصباح",evening:"المساء",
-dryRoutine:"استخدم منظفاً لطيفاً ومرطباً غنياً وواقياً من الشمس بعامل 30 أو أكثر صباحاً. نظف بشرتك ورطبها مساءً.",
-oilyRoutine:"استخدم منظفاً لطيفاً ومرطباً خفيفاً وواقياً من الشمس بعامل 30 أو أكثر صباحاً. نظف بشرتك ورطبها مساءً.",
-combinationRoutine:"استخدم منظفاً لطيفاً ومرطباً خفيفاً وواقياً من الشمس بعامل 30 أو أكثر صباحاً. رطب المناطق الجافة عند الحاجة.",
-normalRoutine:"استخدم منظفاً لطيفاً ومرطباً وواقياً من الشمس بعامل 30 أو أكثر صباحاً. نظف بشرتك ورطبها مساءً."
-}
-};
-
-let currentLanguage = "en";
-let currentCategory = "";
-
-function setLanguage(lang){
-  if(!translations[lang]) return;
-  currentLanguage=lang;
-  document.documentElement.lang=lang;
-  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
-
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key=el.dataset.i18n;
-    if(translations[lang][key]!==undefined){
-      el.textContent=translations[lang][key];
-    }
-  });
-
-  document.querySelectorAll("[data-lang]").forEach(btn=>{
-    btn.classList.toggle("active",btn.dataset.lang===lang);
-  });
-
-  localStorage.setItem("skiniq-language",lang);
-  if(document.getElementById("result").dataset.type){
-    showResult();
-  }
-}
-
-function choose(category){
-  currentCategory=category;
-  document.getElementById("menArea").style.display=
-    category==="men"?"block":"none";
-  document.getElementById("womenArea").style.display=
-    category==="women"?"block":"none";
-  localStorage.setItem("skiniq-category",category);
-  document.getElementById(category==="men"?"menArea":"womenArea")
-    .scrollIntoView({behavior:"smooth"});
-}
-
-function showResult(){
-  const type=document.getElementById("skinType").value;
-  const t=translations[currentLanguage];
-  const key=type+"Routine";
-  const result=document.getElementById("result");
-  result.dataset.type=type;
-  result.innerHTML="";
-  const heading=document.createElement("h3");
-  heading.textContent=t.resultTitle;
-  const description=document.createElement("p");
-  description.textContent=t[key];
-  result.append(heading,description);
-}
-
-document.querySelectorAll("[data-lang]").forEach(btn=>{
-  btn.addEventListener("click",()=>setLanguage(btn.dataset.lang));
-});
-
-setLanguage(localStorage.getItem("skiniq-language")||"en");
-const savedCategory=localStorage.getItem("skiniq-category");
-if(savedCategory==="men"||savedCategory==="women"){
-  currentCategory=savedCategory;
-  document.getElementById("menArea").style.display=
-    savedCategory==="men"?"block":"none";
-  document.getElementById("womenArea").style.display=
-    savedCategory==="women"?"block":"none";
-}
+const words={
+ar:{shipping:'SKINIQ • جمال واعٍ، عناية أذكى',navShop:'المنتجات',navQuiz:'اختبار البشرة',navCategories:'الأقسام',heroEyebrow:'العناية • الجمال • الاكتشاف',heroTitle:'بشرتك تستحق عناية تناسبها.',heroDesc:'اكتشف منتجات العناية، وأجب عن 8 أسئلة بسيطة لتحصل على نوع بشرتك المرجّح وروتين صباحي ومسائي مناسب.',startQuiz:'ابدأ اختبار البشرة ←',browse:'تصفح المنتجات',explore:'اكتشف',catTitle:'تسوق حسب احتياجك',catDesc:'اختر القسم الذي يناسبك',all:'جميع المنتجات',allSub:'اكتشف المجموعة',skin:'العناية بالبشرة',skinSub:'تنظيف وترطيب وحماية',hair:'العناية بالشعر',hairSub:'عناية يومية',fragrance:'العطور',fragranceSub:'روائح مميزة',shopTitle:'منتجات مختارة لك',shopDesc:'منتجات معروفة، مع روابط إلى المواقع الرسمية للعلامات التجارية',allTypes:'جميع أنواع البشرة',dry:'جافة',oily:'دهنية',combination:'مختلطة',normal:'عادية',sensitive:'حساسة',everyone:'للجميع',men:'للرجال',women:'للنساء',pricesNote:'المنتجات أمثلة توضيحية؛ تحقق من التوفر والسعر والمكونات لدى البائع. روابط الشراء ليست معاملات داخل SKINIQ.',quizHeading:'لنكتشف طبيعة بشرتك.',quizIntro:'8 أسئلة تساعدنا على اقتراح نوع البشرة الأقرب لإجاباتك، والروتين والمنتجات التي يمكن البدء بها.',quizFree:'مجاني • بدون تسجيل • لا تُرفع أي صور',skinProfile:'ملف البشرة',back:'السابق',next:'متابعة',finish:'اعرض النتيجة',footer:'جمالك يبدأ بمعرفة بشرتك. تجربة مجانية مستقلة.',search:'ابحث عن منتج أو علامة تجارية',noProducts:'لا توجد منتجات مطابقة',view:'موقع العلامة ↗',checkPrice:'تحقق من السعر',result:'ملف بشرتك',likely:'نوع البشرة المرجّح',concern:'أهم مشكلة',morning:'☀️ روتين الصباح',evening:'🌙 روتين المساء',recommend:'منتجات مقترحة',again:'إعادة الاختبار',disclaimer:'هذه توصيات عامة تعتمد على الإجابات، وليست تشخيصاً طبياً. أوقف المنتج عند حدوث تهيج، واستشر مختصاً عند استمرار المشكلات.',cleanse:'منظف لطيف',moisturize:'مرطب مناسب',spf:'واقي شمس واسع الطيف SPF 30 أو أكثر',nightCleanse:'تنظيف لطيف للبشرة',nightMoisturize:'ترطيب البشرة',dryAdvice:'ركّز على الترطيب ودعم حاجز البشرة.',oilyAdvice:'اختر قواماً خفيفاً غير دهني وتجنب التنظيف القاسي.',combinationAdvice:'استخدم مرطباً خفيفاً وزد الترطيب في المناطق الجافة.',normalAdvice:'حافظ على روتين بسيط ومتوازن.',sensitiveAdvice:'أدخل المنتجات تدريجياً، وفضّل التركيبات الخالية من العطر.',budget:'الميزانية',budgetLow:'اقتصادية',budgetMid:'متوسطة',budgetHigh:'مرنة',acne:'الحبوب والمسام',redness:'الاحمرار والتهيج',dryness:'الجفاف',pigment:'البقع وآثار الحبوب',none:'العناية العامة',routineExtra:'أضف علاجاً موجهاً فقط بعد التأكد من تحمّل بشرتك له.',q:[['كيف تشعر بشرتك بعد غسل الوجه؟',['مشدودة أو جافة','مريحة ومتوازنة','لامعة أو دهنية','جافة في الخدين ودهنية في الجبهة والأنف']],['كيف تصبح بشرتك بعد ساعات من دون منتجات؟',['تظل جافة','تبقى متوازنة','تصبح لامعة جداً','تلمع منطقة الجبهة والأنف فقط']],['كم مرة تلاحظ الحبوب أو انسداد المسام؟',['نادراً','أحياناً','بشكل متكرر','بشكل متكرر في منطقة الجبهة والأنف']],['هل تلاحظ تقشراً أو مناطق خشنة؟',['غالباً','أحياناً','نادراً','على الخدين أكثر']],['كيف تتفاعل بشرتك مع منتج جديد؟',['غالباً يحدث لسع أو احمرار','أحياناً يحدث تهيج','عادة لا يحدث شيء','لا أعرف']],['ما المشكلة الأساسية التي تريد تحسينها؟',['الحبوب والمسام','الجفاف','البقع وآثار الحبوب','الاحمرار والتهيج']],['هل تعاني من الاحمرار أو الحكة أو اللسع؟',['كثيراً','أحياناً','نادراً','لا']],['ما ميزانيتك التقريبية لروتين البشرة؟',['أقل من 200 درهم','200 إلى 400 درهم','أكثر من 400 درهم','أفضل البدء بالأساسيات']]]},
+fr:{shipping:'SKINIQ • La beauté en toute confiance',navShop:'Produits',navQuiz:'Diagnostic guidé',navCategories:'Catégories',heroEyebrow:'SOIN • BEAUTÉ • DÉCOUVERTE',heroTitle:'Votre peau mérite des soins adaptés.',heroDesc:'Découvrez nos sélections et répondez à 8 questions pour une estimation de votre type de peau et une routine adaptée.',startQuiz:'Commencer le questionnaire →',browse:'Voir les produits',explore:'EXPLORER',catTitle:'Choisissez vos essentiels',catDesc:'Parcourez les catégories',all:'Tous les produits',allSub:'La sélection',skin:'Soins du visage',skinSub:'Nettoyer et hydrater',hair:'Soins capillaires',hairSub:'Routine cheveux',fragrance:'Parfums',fragranceSub:'Vos fragrances',shopTitle:'Notre sélection',shopDesc:'Des produits connus et des liens vers les sites officiels',allTypes:'Tous types de peau',dry:'Sèche',oily:'Grasse',combination:'Mixte',normal:'Normale',sensitive:'Sensible',everyone:'Tout le monde',men:'Hommes',women:'Femmes',pricesNote:'Produits présentés à titre indicatif. Vérifiez prix, disponibilité et composition chez le vendeur. Aucun achat sur SKINIQ.',quizHeading:'Découvrons votre peau.',quizIntro:'8 questions pour estimer votre type de peau et suggérer une routine et des produits.',quizFree:'Gratuit • Sans compte • Aucune photo envoyée',skinProfile:'Profil cutané',back:'Précédent',next:'Suivant',finish:'Voir mon résultat',footer:'Votre beauté commence par la connaissance de votre peau.',search:'Rechercher un produit ou une marque',noProducts:'Aucun produit correspondant',view:'Site officiel ↗',checkPrice:'Voir le prix',result:'Votre profil cutané',likely:'Type de peau probable',concern:'Préoccupation principale',morning:'☀️ Routine du matin',evening:'🌙 Routine du soir',recommend:'Produits suggérés',again:'Recommencer',disclaimer:'Conseils généraux basés sur vos réponses, sans valeur de diagnostic médical. Arrêtez en cas d’irritation et consultez un professionnel si nécessaire.',cleanse:'Nettoyant doux',moisturize:'Hydratant adapté',spf:'Écran solaire large spectre SPF 30 ou plus',nightCleanse:'Nettoyage doux',nightMoisturize:'Hydratation',dryAdvice:'Privilégiez les soins hydratants et protecteurs.',oilyAdvice:'Choisissez des textures légères sans nettoyer excessivement.',combinationAdvice:'Hydratez davantage les zones sèches.',normalAdvice:'Gardez une routine simple et équilibrée.',sensitiveAdvice:'Introduisez les soins progressivement et préférez sans parfum.',budget:'Budget',budgetLow:'Économique',budgetMid:'Moyen',budgetHigh:'Flexible',acne:'Boutons et pores',redness:'Rougeurs et irritations',dryness:'Sécheresse',pigment:'Taches et marques',none:'Soin général',routineExtra:'Introduisez des actifs ciblés seulement après avoir vérifié la tolérance.',q:[['Comment se sent votre peau après le nettoyage ?',['Sèche ou tendue','Confortable','Brillante ou grasse','Sèche sur les joues, grasse sur le front et le nez']],['Après quelques heures sans produits, votre peau…',['Reste sèche','Reste équilibrée','Brille beaucoup','Brille seulement sur la zone T']],['À quelle fréquence avez-vous des boutons ou pores obstrués ?',['Rarement','Parfois','Souvent','Souvent sur la zone T']],['Avez-vous des zones rugueuses ou desquamées ?',['Souvent','Parfois','Rarement','Surtout sur les joues']],['Comment réagit votre peau à un nouveau produit ?',['Picotements ou rougeurs fréquents','Irritation occasionnelle','Aucune réaction habituelle','Je ne sais pas']],['Votre principale préoccupation ?',['Boutons et pores','Sécheresse','Taches et marques','Rougeurs et irritation']],['Ressentez-vous rougeurs, démangeaisons ou picotements ?',['Souvent','Parfois','Rarement','Jamais']],['Quel budget pour votre routine ?',['Moins de 200 MAD','200 à 400 MAD','Plus de 400 MAD','Je préfère l’essentiel']]]},
+en:{shipping:'SKINIQ • Smarter beauty, thoughtful care',navShop:'Products',navQuiz:'Skin quiz',navCategories:'Categories',heroEyebrow:'SKINCARE • BEAUTY • DISCOVERY',heroTitle:'Your skin deserves care that fits.',heroDesc:'Explore skincare products and answer 8 simple questions for an estimated skin type and a morning and evening routine.',startQuiz:'Take the skin quiz →',browse:'Browse products',explore:'EXPLORE',catTitle:'Shop your essentials',catDesc:'Find the right category',all:'All products',allSub:'Explore the collection',skin:'Skincare',skinSub:'Cleanse and hydrate',hair:'Haircare',hairSub:'Daily hair routine',fragrance:'Fragrances',fragranceSub:'Discover scents',shopTitle:'Curated for you',shopDesc:'Recognized products with links to official brand websites',allTypes:'All skin types',dry:'Dry',oily:'Oily',combination:'Combination',normal:'Normal',sensitive:'Sensitive',everyone:'Everyone',men:'Men',women:'Women',pricesNote:'Products are illustrative. Verify price, availability and ingredients with the seller. No purchases are processed by SKINIQ.',quizHeading:'Get to know your skin.',quizIntro:'8 questions to estimate your skin type and suggest a practical routine and products.',quizFree:'Free • No account • No photo upload',skinProfile:'Skin profile',back:'Back',next:'Next',finish:'See my results',footer:'Better skincare starts with knowing your skin.',search:'Search product or brand',noProducts:'No matching products',view:'Brand website ↗',checkPrice:'Check price',result:'Your skin profile',likely:'Likely skin type',concern:'Main concern',morning:'☀️ Morning routine',evening:'🌙 Evening routine',recommend:'Suggested products',again:'Retake quiz',disclaimer:'General guidance based on your answers, not a medical diagnosis. Stop use if irritation occurs and seek professional advice for persistent issues.',cleanse:'Gentle cleanser',moisturize:'Suitable moisturizer',spf:'Broad-spectrum sunscreen SPF 30+',nightCleanse:'Gentle cleanse',nightMoisturize:'Moisturize',dryAdvice:'Focus on hydration and skin-barrier support.',oilyAdvice:'Use lightweight textures and avoid harsh cleansing.',combinationAdvice:'Moisturize dry areas more generously.',normalAdvice:'Keep a simple, balanced routine.',sensitiveAdvice:'Introduce products gradually and prefer fragrance-free formulas.',budget:'Budget',budgetLow:'Budget-friendly',budgetMid:'Mid-range',budgetHigh:'Flexible',acne:'Acne and pores',redness:'Redness and irritation',dryness:'Dryness',pigment:'Dark spots and marks',none:'General care',routineExtra:'Introduce targeted actives only after checking skin tolerance.',q:[['How does your skin feel after washing?',['Tight or dry','Comfortable','Shiny or oily','Dry cheeks and oily T-zone']],['After a few hours without products, your skin…',['Stays dry','Stays balanced','Gets very shiny','Gets shiny only on the T-zone']],['How often do you get breakouts or clogged pores?',['Rarely','Sometimes','Often','Often on the T-zone']],['Do you notice flaky or rough patches?',['Often','Sometimes','Rarely','Mostly on cheeks']],['How does your skin react to a new product?',['Often stings or reddens','Occasional irritation','Usually no reaction','Not sure']],['What is your main skincare concern?',['Breakouts and pores','Dryness','Dark spots and marks','Redness and irritation']],['Do you experience redness, itching or stinging?',['Often','Sometimes','Rarely','Never']],['What is your skincare budget?',['Under 200 MAD','200–400 MAD','Over 400 MAD','I prefer the essentials']]]}};
+const products=[
+{id:'cerave-clean',brand:'CERAVE',name:'Foaming Cleanser',cat:'skin',types:['oily','combination','normal'],aud:'all',url:'https://www.cerave.com/skincare/cleansers/foaming-facial-cleanser',desc:{ar:'منظف رغوي للبشرة العادية إلى الدهنية',fr:'Nettoyant moussant pour peaux normales à grasses',en:'Foaming cleanser for normal to oily skin'},role:'cleanser',tier:1},
+{id:'cerave-hyd',brand:'CERAVE',name:'Moisturizing Cream',cat:'skin',types:['dry','normal','sensitive'],aud:'all',url:'https://www.cerave.com/skincare/moisturizers/moisturizing-cream',desc:{ar:'كريم مرطب للبشرة الجافة إلى شديدة الجفاف',fr:'Crème pour peaux sèches à très sèches',en:'Moisturizing cream for dry to very dry skin'},role:'moisturizer',tier:1},
+{id:'toleriane',brand:'LA ROCHE-POSAY',name:'Toleriane Sensitive',cat:'skin',types:['dry','normal','sensitive','combination'],aud:'all',url:'https://www.laroche-posay.com/',desc:{ar:'عناية مرطبة للبشرة الحساسة',fr:'Soin hydratant pour peaux sensibles',en:'Moisturizing care for sensitive skin'},role:'moisturizer',tier:2},
+{id:'effaclar',brand:'LA ROCHE-POSAY',name:'Effaclar Gel',cat:'skin',types:['oily','combination'],aud:'all',url:'https://www.laroche-posay.com/',desc:{ar:'جل تنظيف للبشرة الدهنية',fr:'Gel nettoyant pour peaux grasses',en:'Cleansing gel for oily skin'},role:'cleanser',tier:2},
+{id:'anthelios',brand:'LA ROCHE-POSAY',name:'Anthelios SPF 50+',cat:'skin',types:['dry','oily','normal','combination','sensitive'],aud:'all',url:'https://www.laroche-posay.com/',desc:{ar:'مجموعة واقيات شمس عالية الحماية؛ اختر التركيبة المناسبة',fr:'Protection solaire élevée; choisissez une formule adaptée',en:'High-protection sunscreen range; choose a suitable formula'},role:'sunscreen',tier:2},
+{id:'eucerin',brand:'EUCERIN',name:'Sun Oil Control SPF 50+',cat:'skin',types:['oily','combination'],aud:'all',url:'https://www.eucerin.com/',desc:{ar:'واقي شمس بلمسة جافة للبشرة الدهنية',fr:'Solaire toucher sec pour peaux grasses',en:'Dry-touch sunscreen for oily skin'},role:'sunscreen',tier:2},
+{id:'garnier',brand:'GARNIER',name:'Super UV SPF 50+',cat:'skin',types:['normal','oily','combination'],aud:'all',url:'https://www.garnier.com/',desc:{ar:'مجموعة حماية من الشمس؛ تحقق من نوع التركيبة',fr:'Gamme solaire; vérifiez la formule',en:'Sunscreen range; check the formula'},role:'sunscreen',tier:1},
+{id:'phyto',brand:'PHYTO',name:'PHYTOCYANE Men Shampoo',cat:'hair',types:[],aud:'men',url:'https://www.phyto.com/',desc:{ar:'شامبو للعناية بالشعر للرجال',fr:'Shampooing soin pour hommes',en:'Haircare shampoo for men'},role:'hair',tier:2},
+{id:'dior',brand:'DIOR',name:'Sauvage Eau de Toilette',cat:'fragrance',types:[],aud:'men',url:'https://www.dior.com/',desc:{ar:'عطر رجالي بنفحات منعشة وخشبية',fr:'Parfum masculin frais et boisé',en:'Fresh woody men’s fragrance'},role:'fragrance',tier:3},
+{id:'versace',brand:'VERSACE',name:'Eros Eau de Toilette',cat:'fragrance',types:[],aud:'men',url:'https://www.versace.com/',desc:{ar:'عطر رجالي بنفحات منعشة ودافئة',fr:'Parfum masculin frais et chaleureux',en:'Fresh warm men’s fragrance'},role:'fragrance',tier:3}
+];
+let lang='ar',category='all',step=0;const answers=Array(8).fill(null);const $=id=>document.getElementById(id);const t=k=>words[lang][k]||k;
+function setLang(code){lang=words[code]?code:'ar';document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-t]').forEach(el=>{el.textContent=t(el.dataset.t)});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));$('search').placeholder=t('search');renderProducts();if($('result').classList.contains('show'))showResult();else renderQuestion();try{localStorage.setItem('skiniq-lang-v2',lang)}catch(e){}}
+function renderProducts(){const query=$('search').value.trim().toLowerCase(),skin=$('typeFilter').value,aud=$('audienceFilter').value;const filtered=products.filter(p=>(category==='all'||p.cat===category)&&(skin==='all'||p.types.includes(skin))&&(aud==='all'||p.aud==='all'||p.aud===aud)&&(p.name+' '+p.brand+' '+p.desc[lang]).toLowerCase().includes(query));$('products').innerHTML=filtered.length?filtered.map(p=>`<article class="product"><div class="productvisual"><div class="jar">${p.brand.replaceAll('&','&amp;')}</div><span class="symbol">${p.cat==='fragrance'?'💎':p.cat==='hair'?'🌿':'💧'}</span></div><div class="productbody"><span class="brandname">${p.brand}</span><h3>${p.name}</h3><p>${p.desc[lang]}</p><div class="bottom"><span class="price">${t('checkPrice')}</span><a class="mini" href="${p.url}" target="_blank" rel="noopener noreferrer">${t('view')}</a></div></div></article>`).join(''):`<div class="empty">${t('noProducts')}</div>`;document.querySelectorAll('[data-category]').forEach(b=>b.classList.toggle('active',b.dataset.category===category))}
+function renderQuestion(){const q=t('q')[step];$('questionText').textContent=q[0];$('counter').textContent=(step+1)+' / 8';$('progressbar').style.width=((step+1)/8*100)+'%';$('options').innerHTML='';q[1].forEach((answer,i)=>{const b=document.createElement('button');b.type='button';b.className='option'+(answers[step]===i?' selected':'');b.textContent=answer;b.onclick=()=>{answers[step]=i;renderQuestion()};$('options').append(b)});$('prev').disabled=step===0;$('next').disabled=answers[step]===null;$('next').textContent=step===7?t('finish'):t('next')}
+function calculate(){const score={dry:0,normal:0,oily:0,combination:0};const map=[['dry','normal','oily','combination'],['dry','normal','oily','combination'],['normal','normal','oily','combination'],['dry','dry','oily','combination']];for(let i=0;i<4;i++){score[map[i][answers[i]]]+=i<2?3:1}const type=Object.entries(score).sort((a,b)=>b[1]-a[1])[0][0];const sensitive=(answers[4]===0?2:answers[4]===1?1:0)+(answers[6]===0?2:answers[6]===1?1:0)>=3;const concern=['acne','dryness','pigment','redness'][answers[5]];const tier=answers[7]===0||answers[7]===3?1:answers[7]===1?2:3;return{type,sensitive,concern,tier}}
+function recommendations(r){const compatible=products.filter(p=>p.cat==='skin'&&p.types.includes(r.type));const choose=(role)=>{const list=compatible.filter(p=>p.role===role).sort((a,b)=>Math.abs(a.tier-r.tier)-Math.abs(b.tier-r.tier));return list[0]||products.find(p=>p.role===role)};const ids=[choose('cleanser'),choose('moisturizer'),choose('sunscreen')];if(r.sensitive){ids[1]=products.find(p=>p.id==='toleriane')||ids[1]}return [...new Map(ids.filter(Boolean).map(p=>[p.id,p])).values()]}
+function showResult(){const r=calculate(),result=$('result');$('questionScreen').style.display='none';result.classList.add('show');result.innerHTML='';const intro=document.createElement('div');intro.className='kicker';intro.textContent=t('result');result.append(intro);const heading=document.createElement('h2');heading.className='resulttype';heading.textContent=t(r.type)+(r.sensitive?' • '+t('sensitive'):'');result.append(heading);const detail=document.createElement('p');detail.textContent=t('concern')+': '+t(r.concern)+' • '+t('budget')+': '+t(r.tier===1?'budgetLow':r.tier===2?'budgetMid':'budgetHigh');result.append(detail);const advice=document.createElement('p');advice.textContent=t(r.type+'Advice')+(r.sensitive?' '+t('sensitiveAdvice'):'');result.append(advice);const routines=document.createElement('div');routines.className='routinegrid';for(const [title,items] of [[t('morning'),[t('cleanse'),t('moisturize'),t('spf')]],[t('evening'),[t('nightCleanse'),t('nightMoisturize')]]){const box=document.createElement('div');box.className='routine';const h=document.createElement('h4');h.textContent=title;box.append(h);const ol=document.createElement('ol');items.forEach(s=>{const li=document.createElement('li');li.textContent=s;ol.append(li)});box.append(ol);routines.append(box)}result.append(routines);const h3=document.createElement('h3');h3.textContent=t('recommend');result.append(h3);const rec=document.createElement('div');rec.className='recommend';recommendations(r).forEach(p=>{const el=document.createElement('div');el.className='rec';const name=document.createElement('strong');name.textContent=p.brand+' '+p.name;const desc=document.createElement('small');desc.textContent=p.desc[lang];const link=document.createElement('a');link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';link.className='mini';link.textContent=t('view');el.append(name,desc,link);rec.append(el)});result.append(rec);const disclaimer=document.createElement('p');disclaimer.className='disclaimer';disclaimer.textContent=t('disclaimer');result.append(disclaimer);const again=document.createElement('button');again.className='btn primary';again.textContent=t('again');again.onclick=()=>{answers.fill(null);step=0;result.classList.remove('show');$('questionScreen').style.display='block';renderQuestion()};result.append(again)}
+$('prev').onclick=()=>{if(step>0){step--;renderQuestion()}};$('next').onclick=()=>{if(answers[step]===null)return;if(step<7){step++;renderQuestion()}else showResult()};document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));document.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{category=b.dataset.category;renderProducts();$('shop').scrollIntoView({behavior:'smooth'})});$('search').addEventListener('input',renderProducts);$('typeFilter').addEventListener('change',renderProducts);$('audienceFilter').addEventListener('change',renderProducts);let saved='ar';try{saved=localStorage.getItem('skiniq-lang-v2')||'ar'}catch(e){}setLang(saved);
 </script>
-</body>
-</html>
+</body></html>
