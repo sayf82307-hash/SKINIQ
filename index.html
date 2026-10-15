@@ -178,15 +178,86 @@
 
   </div>
 
-  <div id="men-fragrance-new" style="margin:50px auto 0;max-width:1150px;padding:28px;border:1px solid #333;border-radius:20px;">
-    <h3 style="color:white;">FRAGRANCE DISCOVERY</h3>
-    <p style="color:#bbb;">Fresh • Woody • Amber • Aromatic</p>
+  
+<!-- MEN PRODUCTS -->
+<div id="men-products" style="max-width:1150px;margin:50px auto 0;direction:ltr;">
+
+  <div id="men-fragrance-new" style="margin-bottom:45px;">
+    <h3 data-men-en="FRAGRANCE DISCOVERY"
+        data-men-fr="DÉCOUVERTE DES PARFUMS"
+        data-men-ar="اكتشف العطور"
+        style="color:white;font-size:26px;">FRAGRANCE DISCOVERY</h3>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;">
+
+      <article style="background:#181818;border:1px solid #444;border-radius:18px;padding:22px;">
+        <div style="font-size:55px;text-align:center;">🖤</div>
+        <h4 style="color:white;">Dior Sauvage EDT</h4>
+        <p data-men-en="Fresh and spicy fragrance"
+           data-men-fr="Parfum frais et épicé"
+           data-men-ar="عطر منعش بتوابل عطرية"
+           style="color:#bbb;">Fresh and spicy fragrance</p>
+        <a href="https://www.dior.com/" target="_blank" rel="noopener noreferrer" style="color:#ddd;">DIOR ↗</a>
+      </article>
+
+      <article style="background:#181818;border:1px solid #444;border-radius:18px;padding:22px;">
+        <div style="font-size:55px;text-align:center;">✨</div>
+        <h4 style="color:white;">Versace Eros EDT</h4>
+        <p data-men-en="Fresh and aromatic fragrance"
+           data-men-fr="Parfum frais et aromatique"
+           data-men-ar="عطر منعش وعطري"
+           style="color:#bbb;">Fresh and aromatic fragrance</p>
+        <a href="https://www.versace.com/" target="_blank" rel="noopener noreferrer" style="color:#ddd;">VERSACE ↗</a>
+      </article>
+
+    </div>
   </div>
 
-  <div id="men-hair-new" style="margin:20px auto 0;max-width:1150px;padding:28px;border:1px solid #333;border-radius:20px;">
-    <h3 style="color:white;">HAIRCARE STUDIO</h3>
-    <p style="color:#bbb;">Straight • Curly • Dry • Oily</p>
+  <div id="men-hair-new">
+    <h3 data-men-en="HAIRCARE STUDIO"
+        data-men-fr="SOINS CAPILLAIRES"
+        data-men-ar="العناية بالشعر"
+        style="color:white;font-size:26px;">HAIRCARE STUDIO</h3>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;">
+
+      <article style="background:#181818;border:1px solid #444;border-radius:18px;padding:22px;">
+        <div style="font-size:55px;text-align:center;">🧴</div>
+        <h4 style="color:white;">PHYTOCYANE MEN 250 ml</h4>
+        <p data-men-en="Men's tonifying shampoo"
+           data-men-fr="Shampooing tonifiant pour homme"
+           data-men-ar="شامبو مقوٍّ للشعر للرجال"
+           style="color:#bbb;">Men's tonifying shampoo</p>
+        <p style="color:white;font-weight:bold;">280 MAD*</p>
+        <a href="https://www.parapharma.ma/accueil/30685-phyto-cyane-homme-shampooing-tonifiant-250-ml-3701436915501.html"
+           target="_blank" rel="noopener noreferrer" style="color:#ddd;">VIEW PRODUCT ↗</a>
+      </article>
+
+      <article style="background:#181818;border:1px solid #444;border-radius:18px;padding:22px;">
+        <div style="font-size:55px;text-align:center;">🧴</div>
+        <h4 style="color:white;">CAPIDERMA 200 ml</h4>
+        <p data-men-en="Anti-hair-loss shampoo"
+           data-men-fr="Shampooing antichute"
+           data-men-ar="شامبو للعناية بالشعر المعرض للتساقط"
+           style="color:#bbb;">Anti-hair-loss shampoo</p>
+        <p style="color:white;font-weight:bold;">189 MAD*</p>
+        <a href="https://www.parapharma.ma/homme/2613-capiderma-anti-chute-shampooing-200ml.html"
+           target="_blank" rel="noopener noreferrer" style="color:#ddd;">VIEW PRODUCT ↗</a>
+      </article>
+
+    </div>
   </div>
+
+  <p data-men-en="*Indicative prices; check the seller for current pricing."
+     data-men-fr="*Prix indicatifs ; vérifiez les tarifs chez le vendeur."
+     data-men-ar="*الأسعار استرشادية؛ تحقق من السعر الحالي لدى البائع."
+     style="color:#888;font-size:12px;margin-top:25px;">
+    *Indicative prices; check the seller for current pricing.
+  </p>
+
+</div>
+<!-- END MEN PRODUCTS -->
+  
 
 </section>
 <!-- END SKINIQ MEN COLLECTION -->
@@ -391,6 +462,35 @@
   });
 
   updateMenCollection();
+})();
+</script>
+
+<script>
+(function () {
+  function translateMen() {
+    const active = document.querySelector("[data-lang].active");
+    const lang = active?.getAttribute("data-lang")
+      || localStorage.getItem("language")
+      || document.documentElement.lang
+      || "en";
+
+    const code = ["ar", "fr", "en"].includes(lang) ? lang : "en";
+
+    document.querySelectorAll("[data-men-en]").forEach(el => {
+      el.textContent = el.getAttribute("data-men-" + code);
+    });
+
+    const products = document.getElementById("men-products");
+    if (products) products.dir = code === "ar" ? "rtl" : "ltr";
+  }
+
+  document.querySelectorAll("[data-lang]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      requestAnimationFrame(translateMen);
+    });
+  });
+
+  translateMen();
 })();
 </script>
 </body>
