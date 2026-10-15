@@ -514,3 +514,94 @@ body.theme-women .language-switcher button.active {
   }
 }
 
+
+/* SKINIQ - FINAL THEME FIX */
+
+/* MEN - BLACK & WHITE */
+body.theme-men {
+  --bg: #080808;
+  --surface: #171717;
+  --cyan: #ffffff;
+  --muted: #aaaaaa;
+  --border: #444444;
+  background: #080808 !important;
+  color: #ffffff !important;
+}
+
+body.theme-men .hero,
+body.theme-men .experience,
+body.theme-men .quiz-section,
+body.theme-men .bottom-section {
+  background: #080808 !important;
+}
+
+body.theme-men .feature-card:not(.women-card),
+body.theme-men .quiz-panel {
+  background: #171717 !important;
+  border-color: #444444 !important;
+}
+
+/* WOMEN - PASTEL COLORS */
+body.theme-women {
+  --bg: #fff3fa;
+  --surface: #ffffff;
+  --cyan: #b65acb;
+  --muted: #846b8d;
+  --border: #efc8e8;
+  background: #fff3fa !important;
+  color: #43234f !important;
+}
+
+body.theme-women .hero {
+  background: linear-gradient(
+    135deg,
+    #fff0f8,
+    #eee4ff,
+    #e0f6ff
+  ) !important;
+}
+
+body.theme-women .experience,
+body.theme-women .quiz-section,
+body.theme-women .bottom-section {
+  background: #fff3fa !important;
+}
+
+body.theme-women .feature-card:not(.men-card),
+body.theme-women .quiz-panel {
+  background: #ffffff !important;
+  border-color: #edc5e6 !important;
+}
+
+/* CATEGORY CARDS - ALWAYS DISTINCT */
+body .men-card {
+  background: linear-gradient(
+    145deg,
+    #080808,
+    #292929
+  ) !important;
+  color: #ffffff !important;
+}
+
+body .women-card {
+  background: linear-gradient(
+    135deg,
+    #ffd1e8,
+    #e4d3ff,
+    #c9eeff,
+    #ffe6b8
+  ) !important;
+  color: #40244c !important;
+}
+
+body .men-card h3,
+body .men-card p {
+  color: #ffffff !important;
+}
+
+body .women-card h3,
+body .women-card p {
+  color: #40244c !important;
+}
+
+
